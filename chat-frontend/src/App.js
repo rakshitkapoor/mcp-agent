@@ -29,7 +29,7 @@ const ChatAssistant = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://ec2-54-81-198-0.compute-1.amazonaws.com:8000/chat', {
+      const response = await fetch('https://bba83e143bd1.ngrok-free.app/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ const ChatAssistant = () => {
       console.error('Error sending message:', error);
       const errorMessage = {
         id: Date.now() + 1,
-        text: 'Sorry, I encountered an error. Please make sure the backend server is running on http://ec2-54-81-198-0.compute-1.amazonaws.com:8000',
+        text: 'Sorry, I encountered an error. Please make sure the backend server is running on https://bba83e143bd1.ngrok-free.app',
         sender: 'bot',
         timestamp: new Date().toLocaleTimeString(),
         isError: true
@@ -71,7 +71,7 @@ const ChatAssistant = () => {
 
   const clearChat = async () => {
     try {
-      await fetch(`http://ec2-54-81-198-0.compute-1.amazonaws.com:8000/chat/${sessionId}`, {
+      await fetch(`https://bba83e143bd1.ngrok-free.app/chat/${sessionId}`, {
         method: 'DELETE',
       });
       setMessages([]);
